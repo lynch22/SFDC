@@ -1,0 +1,8 @@
+trigger devInsert on Developer__c (before insert) {
+    Developer__c[] dev = Trigger.new;
+    for (Developer__c d : dev)
+    {
+      d.devNickname__c = 
+        String.valueOf(d.devType__c)  + d.name;
+    }
+}
